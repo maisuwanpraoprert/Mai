@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Mai Suwanpraoprert</title>
+    <link rel="stylesheet" href="mainstyle.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-con">
+                <div class="logo"><a href="">Experience</a></div>
+                <ul class="menu">
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="index.html" class="act">Home</a></li>
+                    <li><a href="skill.html">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="experience-section container">
+        <h2 class="section-title"></h2>
+
+        <div class="exp-category" id="academic">
+            <h3 class="category-title">1. Academic Projects</h3>
+            
+            <div class="exp-item">
+                <div class="exp-img">
+                    <img src="">
+                </div>
+                <div class="exp-detail">
+                    <h4>Senior Project</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quaerat eaque numquam explicabo incidunt dolorum dolore est ullam praesentium minima. Corporis sequi modi vero nihil sint saepe doloribus voluptates dolores.</p>
+                </div>
+                <a href="projectwebsite/" class="side-link" target="_blank" rel="noopener noreferrer">
+                    <span>View Details</span>
+                </a>
+            </div>
+        
+            <div class="exp-item">
+                <div class="exp-img">
+                    <img src="microproject.jpg">
+                </div>
+                <div class="exp-detail">
+                    <h4>Microcontroller Project</h4>
+                    
+                    <p style="text-indent: 30px; margin-bottom: 10px;">
+                        Developed a microcontroller-based system for radiation measurement with time-controlled counting and real-time data display.
+                    </p>
+
+                    <p style="text-indent: 30px; margin-bottom: 10px;">
+                        The system supports time-controlled radiation counting with real-time display and mode switching between measurement and RTC functions. Key technical implementations include:
+                    </p>
+
+                    <ul style="padding-left: 50px; list-style-type: disc;">
+                        <li>C/C++ programming</li>
+                        <li>Interrupt-based signal counting</li>
+                        <li>Real-time clock integration</li>
+                        <li>User interface design using buttons and an LCD display</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="exp-category" id="internship">
+            <h3 class="category-title">2. Internship<span class="intern"> - Varian Medical System</span></h3>
+            <div class="exp-item internship-card">
+                <button class="nav-btn prev" onclick="moveSlider(-1)">❮</button>
+                <button class="nav-btn next" onclick="moveSlider(1)">❯</button>
+
+                <div class="slider-container" id="internship-slider">
+                    <div class="slide">
+                        <img src="siemens.jpg">
+                        <div class="slide-caption">Service Engineer Intern</div>
+                    </div>
+                    <div class="slide">
+                        <img src="pm.jpg">
+                        <div class="slide-caption">LINAC - Preventive Maintenance(PM)</div>
+                    </div>
+                    <div class="slide">
+                        <img src="troubleshoot.jpg">
+                        <div class="slide-caption">LINAC - Electronics Troubleshooting</div>
+                    </div>
+                    <div class="slide">
+                        <img src="proton.jpg">
+                        <div class="slide-caption">Proton Therapy - Observing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exp-category" id="activities">
+            <h3 class="category-title">3. Extracurricular Activity</h3>
+            
+            <div class="tab-menu">
+                <button class="tab-btn active" onclick="openTab(event, 'case-comp')">Case Competition</button>
+                <button class="tab-btn" onclick="openTab(event, 'faculty-act')">Other Activities</button>
+            </div>
+
+            <div id="case-comp" class="tab-content active">
+                <div class="exp-item">
+                    <div class="exp-img">
+                        <img src="prab.png">
+                    </div>
+                    <div class="exp-detail">
+                        <h4>1. Beat the Biz <span class="exp-date">August 2023</span></h4>
+                        <p>Designed a modern <strong>Thai herbal inhaler</strong> for SMEs by blending local Thai flower aromatic oils for a unique scent profile. 
+                            <strong>Developed a production-ready prototype using Fusion 360 (3D Modeling).</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-img">
+                        <img src="hack.jpg">
+                    </div>
+                    <div class="exp-detail">
+                        <h4>2. Hack for Growth<span class="exp-date">May - June 2023</span></h4>
+                        <p>Reversed declining sales by <strong>partnering with travel platforms to integrate in-app bookings and local guide services.</strong>
+                            This collaboration expanded market reach and boosted community revenue through a streamlined digital experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="faculty-act" class="tab-content">
+                <div class="exp-item">
+                    <div class="exp-img">
+                        <img src="headdog.jpg">
+                    </div>
+                    <div class="exp-detail">
+                        <h4>1.  Leader of freshmen group</h4>
+                        <p><strong>Managed group tasks and assigned responsibilities to team members.</strong>
+                            Acted as the main contact to coordinate with other departments, ensuring smooth <strong>decision-making</strong> and a successful event.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-img">
+                        <img src="larngear.jpg">
+                    </div>
+                    <div class="exp-detail">
+                        <h4>2. LarnGear Camp 25 th – Department Representative</h4>
+                        <p>Served as a keynote <strong>speaker to introduce the Nuclear Engineering department</strong> to prospective students. 
+                            Presented essential insights on the academic curriculum, internship opportunities, 
+                            and future career paths within the nuclear and high-tech industries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-top-con">
+                <div class="footer-top-item">
+                    <h4>Contact information</h4>
+                    <div class="footer-top-item-con">
+                        <div class="date">
+                            Email <li><a href="mailto:maisuwanpraoprert@gmail.com">maisuwanpraoprert@gmail.com</a></li><br>
+                            LinkedIn <li><a href="https://www.linkedin.com/in/mai-suwan" target="_blank">linkedin.com/in/mai-suwan</a></li><br> 
+                            GitHub <li><a href="https://github.com/maisuwanpraoprert">github.com/maisuwanpraoprert</a></li>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-buttom">© 2026 Mai Suwanpraoprert | Portfolio</div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlider(direction) {
+            const slider = document.getElementById('internship-slider');
+            const slides = slider.getElementsByClassName('slide');
+            const totalSlides = slides.length;
+
+            // อัปเดต Index ปัจจุบัน
+            currentIndex += direction;
+
+            // เช็คเงื่อนไขวนลูป
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0; // ถ้าเลยรูปสุดท้าย ให้กลับไปรูปแรก
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1; // ถ้าถอยจากรูปแรก ให้ไปรูปสุดท้าย
+            }
+
+            // สั่งเลื่อนไปตาม Index
+            const offset = currentIndex * slider.clientWidth;
+            slider.scrollTo({
+                left: offset,
+                behavior: 'smooth'
+            });
+        }
+
+        
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // ซ่อนเนื้อหาทั้งหมด
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+
+            // เอา class "active" ออกจากปุ่มทั้งหมด
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // แสดงเนื้อหาที่เลือก และเติม class active ให้ปุ่มที่กด
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
+</body>
+</html>

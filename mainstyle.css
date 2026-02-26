@@ -1,0 +1,746 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(243, 236, 236);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+nav{
+    padding: 1rem;
+    background-color: #2f2a27 ;
+}
+
+nav .container {
+    max-width: 99%;    /* ขยายให้เต็มความกว้างจอ */
+    padding: 0 2rem;    /* ใส่ padding กันไม่ให้ตัวหนังสือติดขอบจอเกินไป */
+}
+
+.nav-con{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo a{
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.menu li {
+    margin: 0 3rem;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/******* dropdown  *******/
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+    vertical-align: top; /* ช่วยให้เมนูเรียงกันสวยขึ้น */
+}
+
+ul li a {
+    display: block;
+    padding: 15px 20px; /* ปรับ padding ให้สมดุล */
+    color: #fff; /* เปลี่ยนตามสีที่คุณต้องการ */
+    font-size: 1.2rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+ul li ul.dropdown {
+    width: 250px; 
+    background: #1080a5;
+    position: absolute;
+    left: 0;      /* บังคับให้ชิดซ้ายสุดของเมนูหลัก */
+    top: 100%;    /* ให้แสดงต่อลงมาจากเมนูหลักพอดี */
+    z-index: 999;
+    display: none;
+    padding: 0;   /* สำคัญมาก: ล้างค่า padding ของ ul ชั้นใน */
+    margin: 0;
+    list-style: none;
+}
+
+ul li ul.dropdown li {
+    display: block; /* ให้รายการใน dropdown เรียงลงมาเป็นแถวเดียว */
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
+
+ul li ul.dropdown li a {
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 1rem; /* ปรับขนาดตัวอักษรให้เล็กลงหน่อยในเมนูย่อย */
+    color: #ffffff;
+    background: #1080a5; /* กำหนดสีพื้นหลังให้เหมือนกันทั้งแถบ */
+    border-bottom: 1px solid rgba(20, 19, 19, 0.1); /* เพิ่มเส้นคั่นบางๆ */
+}
+
+ul li a:hover { /* เอฟเฟกต์ตอน Hover */
+    background-color: #f8762a 
+}
+
+ul li ul.dropdown li a:hover { /* เมื่อเอาเมาส์วางที่เมนูย่อย ให้เปลี่ยนสีเฉพาะแถวนั้น */
+    background-color: #0a4b61;
+}
+
+ul li:hover ul.dropdown {
+    display: block;
+}
+
+/***** main content *****/
+.maincontent{
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0, 0, 0, 0.7)), url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative; /* สำหรับจัดตำแหน่งเอฟเฟกต์ Blend */
+}
+
+.maincontent .container {
+    max-width: 100%; /* ขยายให้เต็มความกว้างจอ */
+    padding: 0;      /* เอา padding ออกเพื่อให้รูปชิดขอบ */
+}
+
+.maincontent-con {
+    display: flex;
+    align-items: stretch; /* ให้ทั้งสองฝั่งสูงเท่ากันเสมอ */
+    min-height: 80vh;    /* ปรับความสูงตามต้องการ */
+    flex-direction: row-reverse;
+    margin-bottom: 0;
+}
+
+/* ฝั่งตัวหนังสือ (ซ้าย) */
+.maincontent-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10% 0 10%; /* ดันเนื้อหาให้มาอยู่ช่วงกลางๆ ของฝั่งซ้าย */
+    margin-top: 0;
+}
+
+/* ฝั่งรูปภาพ (ขวา) */
+.maincontent-img {
+    flex: 1;
+    padding: 0;       /* ลบ padding ออก */
+    margin: 0;        /* ลบ margin ออก */
+    height: auto;     /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
+    position: relative;
+}
+
+.maincontent-img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%; /* กำหนดความกว้างของช่วงที่เกลี่ย */
+    height: 100%;
+    z-index: 10;
+}
+
+.maincontent-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* เพิ่มโค้ดด้านล่างนี้ */
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    mask-image: linear-gradient(to right, black 40%, transparent 100%);
+}
+
+.maincontent-info h3{
+    font-size: 4rem;
+}
+
+.maincontent-info p{ 
+    margin-top: 0.5rem;
+}
+
+.maincontent-info .maincontent-btn {
+    display: inline-block;    /* ทำให้ปุ่มกว้างเท่ากับเนื้อหาข้างใน */
+    width: fit-content;       /* บังคับให้ขนาดพอดีกับตัวอักษร */
+    background-color: #0b5e7a;
+    color: #fff;
+    padding: 1rem 2rem;       /* เพิ่ม padding ซ้าย-ขวา ให้ดูเป็นทรงปุ่มที่สวยงาม */
+    border-radius: 9px;
+    text-decoration: none;
+    margin-top: 2rem;         /* เว้นระยะห่างจากข้อความด้านบน */
+}
+
+.maincontent-btn:hover { /* เอฟเฟกต์ตอน Hover */
+    background-color: #eb7a08; 
+}
+
+.content-con{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+    align-items: center;    
+    text-align: center;
+}
+
+.content-title{
+    margin: 2rem 0;
+}
+
+.content-item img{
+    width: 45%;
+    margin: 3rem;
+}
+
+.content-item h4{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: #502e0b;
+}
+
+.content-item p{
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.content-item a{
+    display: inline-block;
+    color: #fff;
+    background-color: #eb7a08;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 1rem;
+}
+.content-item a:hover{
+    background-color: #0b5e7a;
+    transition: 0.5sec;
+}
+
+.footer-top{
+    margin-top: 2rem;
+    padding: 3rem;
+    background-color: #2f2a27;
+    color: #fff;
+}
+
+.footer-top-con{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+}
+
+.footer-top-item {
+    list-style: none;
+}
+
+.footer-top-item h4{
+    font-size: 1.3rem;
+}
+
+.footer-top-item-con{
+    margin: 1rem;
+}
+
+.footer-top-item-con .date{
+    color: #fff;
+    text-align: left;
+}
+
+.footer-top-item-con .date li a{
+    color: #167899;
+    text-decoration: none;
+}
+
+.footer-top-item p{
+    padding-top: 35%;
+    font-size: larger;
+    text-align: left;
+}
+
+.footer-buttom{
+    background-color: #d1d1d1;
+    padding: 1rem;
+    text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/****** eduction *******/
+.detail-header h1{
+    padding-top: 2rem;
+    font-size: 2.3rem;
+    text-align: center;
+}
+.detail-header p{
+    text-align: center;
+}
+
+.education-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* แบ่ง 2 คอลัมน์ */
+    column-gap: 3rem;              /* ระยะห่างระหว่างคอลัมน์ */
+    row-gap: 2rem;
+    
+    border-left: 1px solid #646262;   /* เพิ่มเส้นหน้าสุด */
+    padding-left: 1rem;            
+    
+    margin: 50px;
+    max-width: 1000px;
+}
+.education-list > div:nth-child(2) {   /* เพิ่มเส้นตรงกลาง */
+    border-left: 1.5px solid #646262;
+    padding-left: 1rem; 
+}
+.main-edu-img{
+    justify-content: center;
+    margin:50px;
+    display: flex;
+    gap: 5%;
+    max-width: 1000px; /* กำหนดความกว้างสูงสุดของกลุ่มรูป */
+    height: 400px; /* กำหนดความสูงที่แน่นอนเพื่อให้รูปดูสมดุล */
+}
+
+.main-edu-img img{
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 0.6s;
+    filter: brightness(0.7); /* ทำให้รูปที่ไม่ได้เลือกดูมืดลงนิดนึง */
+}
+
+.main-edu-img img:hover{
+    flex: 2; 
+    filter: brightness(1); /* ให้รูปที่เลือกสว่างปกติ */
+}
+
+/****** experience *******/
+.menu li a.act {
+    color: #0b5e7a; 
+}
+
+/* จัดการส่วนหัวข้อหลัก */
+.section-title {
+    font-size: 2.3rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: #2f2a27;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: #824504;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.exp-category {
+    margin-bottom: 4rem;
+}
+
+/* โครงสร้าง Flexbox สำหรับแบ่งซ้าย-ขวา */
+/* 1. ปรับแต่งตัวการ์ดหลัก */
+.exp-item {
+    position: relative;    /* สำคัญมาก: เพื่อให้แถบด้านขวาอ้างอิงตำแหน่งกับการ์ดนี้ */
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #fff;
+    padding: 1.5rem;
+    padding-right: 80px;   /* เว้นที่ว่างด้านขวาเพิ่ม เพื่อไม่ให้เนื้อหาไปทับแถบสีส้ม */
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;      /* ตัดส่วนที่ล้น เพื่อให้ขอบของแถบสีมนตามการ์ด */
+}
+
+/* 2. สร้างแถบสีด้านขวาสุด */
+.side-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60px;           /* ความกว้างของแถบสีส้ม */
+    height: 100%;          /* ให้สูงเท่ากับการ์ดเสมอ */
+    background-color: #eb7a08; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    transition: all 0.3s ease;
+}
+
+/* 3. จัดตัวอักษรในแถบสีส้มให้เป็นแนวตั้ง */
+.side-link span {
+    color: white;
+    writing-mode: vertical-rl; /* หมุนข้อความให้เป็นแนวตั้ง */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* 4. เอฟเฟกต์ตอนเอาเมาส์ไปชี้ (Hover) */
+.side-link:hover {
+    background-color: #c96806; /* เปลี่ยนสีให้เข้มขึ้นนิดนึง */
+    width: 70px;               /* ขยายความกว้างออกมาเล็กน้อยให้ดูมีลูกเล่น */
+}
+
+/* ฝั่งรูปภาพ (ซ้าย) */
+.exp-img {
+    flex: 1.5;             /* กำหนดสัดส่วนพื้นที่ */
+}
+
+.exp-img img {
+    width: 100%;
+    height: 250px;       /* ปรับความสูงตามต้องการ */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ฝั่งรายละเอียด (ขวา) */
+.exp-detail {
+    flex: 2;             /* ให้ส่วนเนื้อหากว้างกว่ารูป */
+}
+
+.exp-detail h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1080a5;
+}
+
+.exp-detail p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive: เมื่อเปิดในมือถือ ให้รูปอยู่บน ตัวหนังสืออยู่ล่าง */
+@media (max-width: 768px) {
+    .exp-item {
+        flex-direction: column;
+    }
+    .exp-img, .exp-detail {
+        width: 100%;
+    }
+}
+
+
+/* ปรับแต่งการ์ด Internship ให้เน้นรูปใหญ่ */
+.internship-card {
+    display: block;    /* เปลี่ยนจาก flex เป็น block เพื่อให้รูปขยายเต็ม */
+    padding: 0;        /* เอา padding ออกเพื่อให้รูปชิดขอบการ์ด */
+    overflow: hidden;
+    position: relative;
+}
+
+/* ตัวคอนเทนเนอร์ที่เก็บรูปทั้งหมด */
+.slider-container {
+    display: flex;
+    overflow-x: auto;         /* ยอมให้เลื่อนซ้ายขวา */
+    scroll-snap-type: x mandatory; /* ทำให้รูปหยุดกึ่งกลางพอดีเวลาเลื่อน */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+/* เลือก span ที่อยู่ใน category-title */
+.category-title .intern {
+    color: #167899;          
+    font-weight: 400;     
+    margin-left: 10px;    
+}
+
+/* ซ่อน Scrollbar สำหรับ Chrome/Safari/Firefox */
+.slider-container::-webkit-scrollbar { display: none; }
+.slider-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* แต่ละสไลด์ */
+.slide {
+    min-width: 100%;          /* ให้แต่ละรูปกว้างเต็มการ์ด */
+    scroll-snap-align: center;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 600px;         /* ตรวจสอบว่าความสูงพอดีกับที่ต้องการไหม */
+    object-fit: cover;
+    display: block;        /* ลบช่องว่างด้านล่างรูป (baseline gap) */
+    margin: 0;             /* ลบ margin ที่อาจตกค้าง */
+}
+/* จัดการสไลด์แรกให้เป็นตำแหน่ง relative เพื่อให้ตัวหนังสือลอยได้ */
+.first-slide {
+    position: relative;
+    display: flex;         /* เพิ่มสิ่งนี้ */
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;  /* บังคับลบ padding ทุกด้าน */
+    overflow: hidden;       /* ป้องกันรูปล้นขอบ */
+}
+
+/* ทำให้รูปภาพในสไลด์แรกมืดลงเล็กน้อย */
+.first-slide::before {
+    position: absolute;
+    top: 0;                /* เพิ่มสิ่งนี้ */
+    left: 0;               /* เพิ่มสิ่งนี้ */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ส่วนรูปอื่นๆ ยังคงใช้ slide-caption ปกติ */
+.slide-caption {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+/* คำอธิบายเล็กๆ ใต้รูป */
+.slide-caption {
+    background: rgba(255, 255, 255, 0.5); /* พื้นหลังขาวโปร่งแสง */
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* จุดนำทางด้านล่าง (แค่ตกแต่ง) */
+.slider-dots {
+    position: absolute;
+    bottom: 50px; /* ให้อยู่เหนือตัว caption */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.slider-dots span {
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+}
+
+/* เพิ่มเติมสไตล์ปุ่ม Navigation */
+.internship-card {
+    position: relative; /* เพื่อให้ปุ่มเกาะอยู่บนการ์ด */
+    max-width: 800px;   /* ปรับตัวเลขนี้ได้ตามความต้องการ (เช่น 700px หรือ 900px) */
+    margin: 0 auto 3rem auto; /* จัดการ์ดให้อยู่กึ่งกลาง และเว้นระยะห่างด้านล่าง 3rem */
+    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* เพิ่มเงาให้นิดนึงเพื่อให้การ์ดดูเด่นขึ้น */
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 15px 12px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.nav-btn:hover {
+    background: #eb7a08; /* สีส้มตามธีมของคุณ */
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ซ่อน Scrollbar แต่ยังเลื่อนได้ */
+.slider-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* เลือกที่ตัว ul ในส่วนของรายละเอียดประสบการณ์ */
+/* บังคับให้แสดงจุดวงกลมเฉพาะในส่วน exp-detail */
+.exp-detail ul {
+    list-style-type: disc !important; /* !important เพื่อชนะคำสั่ง reset อื่นๆ */
+}
+
+.exp-detail li {
+    display: list-item !important; /* บังคับสถานะให้เป็นรายการ */
+    list-style-position: outside !important; /* ให้จุดอยู่นอกข้อความ */
+    color: #ad5a11; 
+}
+
+.exp-date {
+    font-size: 1rem;       /* ปรับขนาดวันที่ให้เล็กลงกว่าหัวข้อนิดหน่อย */
+    font-weight: 300;      /* ทำให้ตัวบางลง */
+    font-style: italic;    /* ทำให้ตัวเอียง */
+    color: #888;           /* ปรับสีให้จางลงเล็กน้อยเพื่อไม่ให้แย่งความสนใจ */
+    margin-left: 1rem;
+}
+/* เลือกไปที่ li และใช้ ::marker เพื่อจัดการสีของจุด */
+.exp-detail ul li::marker {
+    color: #167899;
+    font-size: 1.2em; /* แถม: ปรับขนาดจุดให้ใหญ่ขึ้นเล็กน้อยได้ด้วย */
+}
+
+/* จัดการปุ่ม Tab */
+.tab-menu {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid #1080a5;
+    background: transparent;
+    color: #1080a5;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: #1080a5;
+    color: white;
+}
+
+/* จัดการการแสดงผลเนื้อหา */
+.tab-content {
+    display: none; /* ซ่อนเนื้อหาเริ่มต้น */
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block; /* แสดงเฉพาะตัวที่ active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/***** skill  *******/
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-top: 5px solid #d9760b; 
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+.skill-icon {
+    font-size: 2rem;       /* ขนาดของ Icon */
+    color: #1080a5;        /* สีฟ้าตามธีมเว็บของคุณ */
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+    display: block;
+    transition: 0.3s;
+}
+
+/* แถม: เมื่อเอาเมาส์วางที่การ์ด ให้ Icon เปลี่ยนสีหรือขยับได้ */
+.skill-card:hover .skill-icon {
+    color: #eb7a08;        /* เปลี่ยนเป็นสีส้มเมื่อ Hover เพื่อให้ดูมีลูกเล่น */
+    transform: scale(1.1); /* ขยายขนาดขึ้นเล็กน้อย */
+}
+
+.skill-card h3 {
+    color: #2f2a27;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Technical List */
+.skill-list {
+    list-style: none;
+    text-align: left;
+}
+.skill-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.skill-list li::before {
+    content: "•";
+    color: #1080a5;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Language Progress Bar */
+.language-item {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+.progress-bar {
+    background: #e0e0e0;
+    height: 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.progress {
+    background: #1080a5;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Soft Skill Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.tag {
+    background: #f3ecec;
+    color: #1080a5;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
