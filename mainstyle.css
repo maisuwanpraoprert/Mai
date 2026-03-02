@@ -744,3 +744,155 @@ html {
     font-size: 0.9rem;
     font-weight: 600;
 }
+
+/*******************************************************
+  RESPONSIVE DESIGN (Media Queries)
+********************************************************/
+
+/* สำหรับหน้าจอ Tablet และมือถือขนาดใหญ่ (ต่ำกว่า 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .menu li {
+        margin: 0 1.5rem; /* ลดระยะห่างเมนู */
+    }
+
+    .education-list {
+        margin: 20px auto;
+        grid-template-columns: 1fr; /* เปลี่ยนการศึกษาเป็นแถวเดียว */
+        border-left: 2px solid #646262;
+    }
+
+    .education-list > div:nth-child(2) {
+        border-left: none; /* เอาเส้นคั่นกลางออก */
+        padding-top: 1rem;
+        border-top: 1px solid #ddd; /* เพิ่มเส้นคั่นบนแทน */
+    }
+}
+
+/* สำหรับหน้าจอมือถือมาตรฐาน (ต่ำกว่า 768px) */
+@media (max-width: 768px) {
+    
+    /* --- Navigation --- */
+    .nav-con {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu li {
+        margin: 0.5rem 1rem;
+    }
+
+    /* --- Main Content (About Me หน้าแรก) --- */
+    .maincontent-con {
+        flex-direction: column; /* เอารูปขึ้นบน หรือลงล่างตามโครงสร้าง */
+        min-height: auto;
+    }
+
+    .maincontent-info {
+        padding: 3rem 5%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .maincontent-info h3 {
+        font-size: 2.5rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .maincontent-img {
+        height: 350px; /* จำกัดความสูงรูปในมือถือ */
+    }
+
+    .maincontent-img img {
+        /* ปรับตำแหน่งเกลี่ยขอบให้เนียนในแนวตั้งแทนถ้าจำเป็น */
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+
+    /* --- Experience & Education --- */
+    .exp-item {
+        flex-direction: column;
+        padding-right: 1.5rem; /* คืนพื้นที่ฝั่งขวา */
+    }
+
+    .exp-img, .exp-detail {
+        width: 100%;
+    }
+
+    .side-link {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        writing-mode: horizontal-tb; /* หมุนข้อความกลับมาแนวนอน */
+        margin-top: 1rem;
+        border-radius: 8px;
+    }
+
+    .side-link span {
+        writing-mode: horizontal-tb;
+    }
+
+    /* --- Skills Page --- */
+    .skills-grid {
+        grid-template-columns: 1fr; /* การ์ด Skill เรียงแถวเดียว */
+    }
+
+    /* --- Footer --- */
+    .footer-top-con {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-top-item p {
+        padding-top: 1rem;
+        text-align: center;
+    }
+
+    .footer-top-item-con .date {
+        text-align: center;
+    }
+
+    /* --- Internship Slider --- */
+    .slide img {
+        height: 350px; /* ลดความสูงสไลเดอร์ในมือถือ */
+    }
+
+    .nav-btn {
+        padding: 10px 8px;
+        font-size: 1.2rem;
+    }
+}
+
+/* สำหรับมือถือขนาดเล็ก (ต่ำกว่า 480px) */
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 1.5rem;
+    }
+
+    .maincontent-info h3 {
+        font-size: 2rem;
+    }
+
+    .content-con {
+        grid-template-columns: 1fr; /* Grid หน้าแรกเรียงแถวเดียว */
+    }
+
+    .tab-menu {
+        flex-direction: column; /* ปุ่ม Tab เรียงแนวตั้ง */
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+}
